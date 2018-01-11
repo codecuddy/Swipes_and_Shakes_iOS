@@ -24,6 +24,16 @@ class ViewController: UIViewController {
         swipeLeft.direction = UISwipeGestureRecognizerDirection.left
         self.view.addGestureRecognizer(swipeLeft)
         
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.swiped(gesture:)))
+        
+        swipeUp.direction = UISwipeGestureRecognizerDirection.up
+        self.view.addGestureRecognizer(swipeUp)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.swiped(gesture:)))
+        
+        swipeDown.direction = UISwipeGestureRecognizerDirection.down
+        self.view.addGestureRecognizer(swipeDown)
+        
     }
 
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
@@ -47,6 +57,12 @@ class ViewController: UIViewController {
                 
             case UISwipeGestureRecognizerDirection.left:
                 print("User Swiped Left")
+                
+            case UISwipeGestureRecognizerDirection.up:
+                print("User Swiped Up")
+                
+            case UISwipeGestureRecognizerDirection.down:
+                print("User Swiped Down")
                 
             default:
                 break
